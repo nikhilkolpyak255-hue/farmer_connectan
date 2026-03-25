@@ -1,58 +1,84 @@
 <footer class="footer">
-  <div class="footer-container">
+  <footer class="footer">
+    <div class="footer-container">
 
-    <!-- Platform Info -->
-    <div class="footer-box">
-      <h3>🌾 Farmer Bidding Platform</h3>
-      <p>
-        A transparent online bidding system that connects farmers directly
-        with buyers for fair crop prices.
-      </p>
+      <!-- Platform Info -->
+      <div class="footer-box">
+        <h3>🌾 Farmer Bidding Platform</h3>
+        <p>
+          A transparent online bidding system that connects farmers directly
+          with buyers for fair crop prices.
+        </p>
 
-      <!-- Social Media Icons -->
-      <div class="social-icons">
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-x-twitter"></i>
-        <i class="fa-brands fa-youtube"></i>
-        <i class="fa-brands fa-square-whatsapp"></i>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-square-whatsapp"></i>
+        </div>
       </div>
-    </div>
 
-    <!-- Quick Links -->
-    <div class="footer-box">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/bidding">Live Bidding</a></li>
-        <li><a routerLink="/farmer-login">Farmer Login</a></li>
-        <li><a routerLink="/buyer-login">Buyer Login</a></li>
-        <li><a routerLink="/register">Register</a></li>
-      </ul>
-    </div>
+      <!-- Quick Links -->
+      <div class="footer-box">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/bidding">Live Bidding</a></li>
+          <li><a routerLink="/farmer-login">Farmer Login</a></li>
+          <li><a routerLink="/buyer-login">Buyer Login</a></li>
+          <li><a routerLink="/register">Register</a></li>
+        </ul>
+      </div>
 
-    <!-- Support -->
-    <div class="footer-box">
-      <h4>Support</h4>
-      <p>📞 Helpline: +91 9XXXX </p>
-      <p>✉ support@farmerbidding.com</p>
-      <p>📍 India</p>
-    </div>
+      <!-- Support -->
+      <div class="footer-box">
+        <h4>Support</h4>
+        <p>📞 Helpline: +91 9XXXX </p>
+        <p>✉ support@farmerbidding.com</p>
+        <p>📍 India</p>
+      </div>
 
-    <!-- Contact Us -->
-    <div class="footer-box">
-      <h4>Contact Us</h4>
-      <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Email">
-        <textarea placeholder="Message"></textarea>
-        <button type="submit">Send</button>
-      </form>
+      <div class="footer-box">
+        <h4>Contact Us</h4>
+
+        <form (submit)="submitForm($event)" novalidate>
+
+          <!-- Name -->
+          <div class="input-wrapper" [class.input-error]="submitted && !name">
+            <input type="text" placeholder="Your Name" [(ngModel)]="name" name="name" />
+          </div>
+          <small class="error-text" *ngIf="submitted && !name">
+            Name is required
+          </small>
+
+          <!-- Email -->
+          <div class="input-wrapper" [class.input-error]="submitted && emailError">
+            <input type="email" placeholder="Email" [(ngModel)]="email" name="email" />
+          </div>
+          <small class="error-text" *ngIf="submitted && emailError">
+            Enter a valid email address
+          </small>
+
+          <!-- Message -->
+          <div class="input-wrapper" [class.input-error]="submitted && messageError">
+            <textarea placeholder="Message" [(ngModel)]="message" name="message"></textarea>
+          </div>
+          <small class="error-text" *ngIf="submitted && messageError">
+            Message must be at least 10 characters
+          </small>
+
+          <button type="submit">Send</button>
+
+        </form>
+      </div>
+
     </div>
-  </div>
-  <div class="footer-bottom">
-    © 2025 Farmer Bidding Platform | College Project
-    <br>
-    <span>Transparency • Fair Pricing • Farmer Empowerment</span>
-  </div>
+    <div class="footer-bottom">
+      © 2025 Farmer Bidding Platform | College Project
+      <br>
+      <span>Transparency • Fair Pricing • Farmer Empowerment</span>
+    </div>
+  </footer>
 </footer>

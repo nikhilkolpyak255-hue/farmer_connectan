@@ -1,0 +1,25 @@
+<app-customer-navbar></app-customer-navbar>
+<div class="product-card" *ngFor="let product of products">
+
+  <div class="card-left">
+    <img [src]="product.img1" alt="product">
+  </div>
+
+  <div class="card-middle">
+
+    <p>{{product.description}}</p>
+  </div>
+
+  <div class="card-right">
+    <span class="date">{{product.datetime}}</span>
+    <h3 class="price">₹ {{product.price}}</h3>
+
+  
+    <button class="bid-btn" (click)="nextpage(product.pid)" >
+      Place Bid
+    </button>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

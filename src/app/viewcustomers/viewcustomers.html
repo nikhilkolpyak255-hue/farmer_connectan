@@ -1,6 +1,16 @@
- @for (customer of customers(); track customer.cid) {
-    <div class="farmer-card" >
-  <!-- Left: Farmer Info -->
+<div class="search-wrapper">
+  <div class="search-box">
+    <i class="fas fa-search search-icon"></i>
+    <input type="search" class="search-input" placeholder="Search crops, markets, suppliers..."
+      [(ngModel)]="searchTerm">
+    <button class="search-btn">
+      Search
+    </button>
+  </div>
+</div>
+@for (customer of customers(); track customer.cid) {
+@if (customer.status===1) {
+<div class="farmer-card">
   <div class="card-info ">
     <div class="card-header">
       <h2>{{ customer.username }}</h2>
@@ -33,7 +43,7 @@
 
       <!-- Buttons -->
       <div class="card-buttons">
-        <button class="btn block" (click)="blockCustomer( )">Block</button>
+        <button class="btn block" (click)="blockCustomer(customer.email)">Block</button>
         <button class="btn unblock" (click)="unblockCustomer( )">Unblock</button>
       </div>
     </div>
@@ -45,4 +55,5 @@
     <img *ngIf="customer.customerAdharback" [src]="customer.customerAdharback" alt="Aadhar Back">
   </div>
 </div>
- }
+}
+}

@@ -1,4 +1,4 @@
-/* RESET */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
 .login-page {
   min-height: 100vh;
   background: rgba(13, 180, 13, 0.65);
@@ -15,21 +15,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-right: 6%;
+  padding: 20px;
 }
 
-/* LOGIN BOX */
+/* ================= LOGIN BOX ================= */
 .login-box {
   background: rgba(255, 255, 255, 0.95);
   width: 360px;
+  max-width: 100%;
+  margin-top: 20px;
   padding: 35px 30px 30px;
   border-radius: 18px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   text-align: center;
-
 }
 
-/* AVATAR */
+/* ================= AVATAR ================= */
 .avatar {
   width: 90px;
   height: 90px;
@@ -49,7 +50,7 @@
   border-radius: 50%;
 }
 
-/* TEXT */
+/* ================= TEXT ================= */
 .login-box h2 {
   color: #2e7d32;
   margin-bottom: 5px;
@@ -61,7 +62,7 @@
   margin-bottom: 20px;
 }
 
-/* ICON INPUT */
+/* ================= INPUT ICON ================= */
 .icon-input {
   position: relative;
 }
@@ -84,13 +85,15 @@
   margin-left: 15px;
 }
 
-/* LOGIN BUTTON */
+/* ================= LOGIN BUTTON ================= */
 .btn-login {
   background: #43a047;
   color: #fff;
   border-radius: 30px;
   padding: 12px;
   font-weight: bold;
+  border: none;
+  transition: 0.3s;
 }
 
 .btn-login:hover {
@@ -98,64 +101,202 @@
   color: #fff;
 }
 
+/* ================= ROLE SELECTION ================= */
 .role-selection {
-  margin-top: 1rem;
+  margin-top: 15px;
+  text-align: center;
 }
 
 .role-selection .form-check {
-  margin-right: 2rem;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 12px;
+  gap: 6px;
 }
 
 .role-selection .form-check-input {
-  transform: scale(1.3);
-  margin-right: 0.4rem;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
 }
 
-/* Farmer role (Green) */
+.role-selection .form-check-label {
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Farmer role */
 .role-farmer .form-check-input {
   accent-color: #2e7d32;
 }
 
 .role-farmer .form-check-label {
   color: #2e7d32;
-  font-weight: 600;
-  cursor: pointer;
 }
 
-/* Customer role (Blue) */
+/* Customer role */
 .role-customer .form-check-input {
   accent-color: #1565c0;
 }
 
 .role-customer .form-check-label {
   color: #1565c0;
-  font-weight: 600;
-  cursor: pointer;
 }
 
-/* ANIMATION */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(80px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
+/* ================= LINKS ================= */
 a {
   color: blue;
-  text-decoration: dashed;
+  text-decoration: none;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .login-page {
-    justify-content: center;
-    padding-right: 0;
+a:hover {
+  text-decoration: underline;
+}
+
+/* ================= NEW USER REGISTRATION ================= */
+.register-section {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.register-section p {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+.btn-register {
+  width: 100%;
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid #28a745;
+  background-color: transparent;
+  color: #28a745;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-register i {
+  margin-right: 6px;
+}
+
+.btn-register:hover {
+  background-color: #28a745;
+  color: #fff;
+  transform: scale(1.03);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .login-box {
+    width: 90%;
+    max-width: 420px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    margin-top: -60px;
   }
 }
+
+/* Mobile */
+@media (max-width: 576px) {
+  .login-page {
+    padding: 15px;
+  }
+
+  .login-box {
+    width: 100%;
+    padding: 25px 20px;
+    border-radius: 15px;
+  }
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+    margin-top: -50px;
+  }
+
+  .login-box h2 {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .btn-login {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .role-selection .form-check {
+    display: flex;
+    justify-content: center;
+    margin: 6px 0;
+  }
+
+  .icon-input i {
+    left: 12px;
+  }
+
+  .icon-input .form-control {
+    padding-left: 38px;
+  }
+}
+
+/* Very Small Devices */
+@media (max-width: 400px) {
+  .login-box {
+    padding: 20px 15px;
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+  }
+
+  .btn-login {
+    font-size: 13px;
+  }
+}
+/* Register section */
+.register-section {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.register-section p {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Register button */
+.btn-register {
+  width: 100%;
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid #28a745;
+  background-color: transparent;
+  color: #28a745;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-register i {
+  margin-right: 6px;
+}
+
+/* Hover effect */
+.btn-register:hover {
+  background-color: #28a745;
+  color: #fff;
+  transform: scale(1.03);
+}
+

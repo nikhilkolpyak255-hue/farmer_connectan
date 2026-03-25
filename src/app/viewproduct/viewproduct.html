@@ -1,0 +1,34 @@
+<div class="search-wrapper">
+    <div class="search-box">
+        <i class="fas fa-search search-icon"></i>
+        <input type="search" class="search-input" placeholder="Search crops, markets, suppliers..."
+            [(ngModel)]="searchTerm">
+        <button class="search-btn">
+            Search
+        </button>
+    </div>
+</div>
+<div class="card-container">
+    @for (product of products; track product.pid) {
+    <div class="card">
+        <!-- Left side: product image -->
+        <div class="card-image">
+            <img [src]="product.img1" alt="{{ product.productName }}" />
+        </div>
+
+        <!-- Right side: product details -->
+        <div class="card-details">
+            <h3>{{ product.productName }}</h3>
+            <p>Type: {{ product.productType }}</p>
+            <p>Quantity: {{ product.quantity }}</p>
+            <p>Price: ₹{{ product.price }}</p>
+            <p>Status: {{ product.status }}</p>
+            <p>Date: {{ product.datetime }}</p>
+            <p>Description: {{ product.description }}</p>
+            <p>Farmer ID: {{ product.farmerId }}</p>
+        </div>
+    </div>
+
+
+    }
+</div>

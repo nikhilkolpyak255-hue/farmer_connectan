@@ -1,0 +1,44 @@
+<app-customer-navbar></app-customer-navbar>
+
+<div class="card-container">
+
+  @for (product of productarray(); track product.productId) {
+
+    <div class="bid-card">
+
+      <!-- IMAGE -->
+      <div class="image-box">
+        <img [src]="product.img1" alt="Product Image">
+      </div>
+
+      <!-- DETAILS -->
+      <div class="card-body">
+
+        <h3>Product ID: {{ product.productId }}</h3>
+
+        <p><strong>Bid ID:</strong> {{ product.bid }}</p>
+
+        <p><strong>Customer ID:</strong> {{ product.customerId }}</p>
+
+        <p class="price">
+          ₹ {{ product.biddingPrice | number }}
+        </p>
+
+        <p class="date">
+          {{ product.dateTime | date:'medium' }}
+        </p>
+
+        <!-- BUTTON -->
+        <button (click)="placeBid(product.productId, product.bid)">
+          🚀 Place Bid
+        </button>
+
+      </div>
+
+    </div>
+
+  }
+
+</div>
+
+<app-footer></app-footer>

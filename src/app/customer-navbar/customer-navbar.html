@@ -1,8 +1,8 @@
- <nav class="og-nav" [class.is-open]="menuOpen">
+<nav class="og-nav" [class.is-open]="menuOpen">
     <div class="nav-inner">
-        <a class="brand" routerLink="/" (click)="closeAll()">
+        <a class="brand" routerLink="/customerhomepage" (click)="closeAll()">
             <!-- <i class="fa-solid fa-leaf"></i> -->
-             🌾
+            🌾
             <span>Farmer-Connect</span>
         </a>
 
@@ -13,35 +13,28 @@
         <ul class="links" [class.show]="menuOpen">
 
             <li>
-                <a routerLink="/aboutus" (click)="closeAll()">
+                <a routerLink="/customerabout" (click)="closeAll()">
                     <i class="fa-solid fa-circle-info"></i> About Us
                 </a>
             </li>
 
             <li>
-                <a routerLink="/account" (click)="closeAll()">
+                <a routerLink="/customeraccount" (click)="closeAll()">
                     <i class="fa-solid fa-user-circle"></i> Account
                 </a>
             </li>
 
             <!-- ✅ PURCHASE BID -->
             <li>
-                <a routerLink="/bids/purchase" (click)="closeAll()">
+                <a routerLink="/purchase" (click)="closeAll()">
                     <i class="fa-solid fa-cart-shopping"></i> Purchase Bid
                 </a>
             </li>
 
             <!-- ✅ VIEW BID -->
             <li>
-                <a routerLink="/bids/view" (click)="closeAll()">
-                    <i class="fa-solid fa-gavel"></i> View Bid
-                </a>
-            </li>
-
-            <!-- ✅ WEST COLLECTING -->
-            <li>
-                <a routerLink="/west/collecting" (click)="closeAll()">
-                    <i class="fa-solid fa-recycle"></i> West Collecting
+                <a routerLink="/pendingbid" (click)="closeAll()">
+                    <i class="fa-solid fa-gavel"></i> View Pending Bid
                 </a>
             </li>
 

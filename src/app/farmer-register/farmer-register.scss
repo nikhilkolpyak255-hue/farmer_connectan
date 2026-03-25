@@ -8,7 +8,6 @@ $bg-end: #e8f5e9;
 $text-dark: #2b2b2b;
 $border-gray: #d6dce1;
 $error-red: #e5533d;
-
 /* Background */
 .page-bg {
   min-height: 100vh;
@@ -16,7 +15,6 @@ $error-red: #e5533d;
   padding: 30px 15px;
   font-family: "Segoe UI", Arial, sans-serif;
 }
-
 /* Card */
 .register-container {
   max-width: 560px;
@@ -26,7 +24,6 @@ $error-red: #e5533d;
   border-radius: 14px;
   box-shadow: 0 10px 26px rgba(0,0,0,.1);
 }
-
 /* Title */
 h2 {
   display: flex;
@@ -34,26 +31,21 @@ h2 {
   gap: 8px;
   color: $primary-green;
 }
-
 .title-icon {
   color: $primary-green;
 }
-
 /* Form */
 .form-group {
   margin-bottom: 18px;
 }
-
 label {
   font-size: 14px;
   font-weight: 600;
 }
-
 /* Input */
 .input-wrapper {
   position: relative;
 }
-
 .field-icon {
   position: absolute;
   left: 10px;
@@ -61,7 +53,6 @@ label {
   transform: translateY(-50%);
   color: $icon-green; // FIXED color
 }
-
 /* Inputs */
 input,
 textarea {
@@ -71,24 +62,20 @@ textarea {
   border: 1px solid $border-gray;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
-
 input:hover,
 textarea:hover {
   border-color: $light-green;
 }
-
 input:focus,
 textarea:focus {
   border-color: $light-green;
   box-shadow: 0 0 0 2px rgba(109,190,69,.15);
 }
-
 /* Error */
 .has-error input,
 .has-error textarea {
   border-color: $error-red;
 }
-
 .error-icon {
   position: absolute;
   right: 12px;
@@ -96,12 +83,10 @@ textarea:focus {
   transform: translateY(-50%);
   color: $error-red;
 }
-
 .error-text {
   font-size: 12px;
   color: $error-red;
 }
-
 /* Upload */
 .upload-box {
   flex: 1;
@@ -112,24 +97,20 @@ textarea:focus {
   background: #fafafa;
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
-
 .upload-box:hover {
   border-color: $primary-green;
   box-shadow: 0 6px 14px rgba(0,0,0,.1);
   transform: translateY(-2px);
 }
-
 .upload-icon {
   font-size: 30px;
   color: $primary-green; // FIXED color
 }
-
 /* Layout */
 .row {
   display: flex;
   gap: 16px;
 }
-
 /* Button */
 .btn-primary {
   width: 100%;
@@ -145,22 +126,17 @@ textarea:focus {
   gap: 6px;
   transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
 }
-
 .btn-primary:hover {
   background: $light-green;
   box-shadow: 0 6px 14px rgba(0,0,0,.15);
   transform: translateY(-1px);
 }
-
 /* Responsive */
 @media (max-width: 600px) {
   .row {
     flex-direction: column;
   }
 }
-
-
-
 button {
   margin: 20px auto;
   display: block;
@@ -172,17 +148,14 @@ button {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
-
   &:hover {
     background-color: #43a047;
     transform: translateY(-2px);
   }
-
   &:active {
     transform: translateY(0);
   }
 }
-
 .farmer-card-body {
   max-width: 420px;
   margin: 15px auto;
@@ -192,19 +165,16 @@ button {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
   font-family: Arial, sans-serif;
   animation: fadeIn 0.3s ease-in;
-
   p {
     margin: 8px 0;
     font-size: 14.5px;
     color: #333;
     line-height: 1.5;
-
     strong {
       color: #2e7d32;
       font-weight: 600;
     }
   }
-
   .adhar-img {
     display: block;
     margin-top: 8px;
@@ -214,24 +184,20 @@ button {
     border: 1px solid #ddd;
   }
 }
-
 /* Responsive */
 @media (max-width: 600px) {
   .farmer-card-body {
     margin: 12px;
     padding: 15px;
-
     p {
       font-size: 14px;
     }
   }
-
   button {
     width: 90%;
     font-size: 15px;
   }
 }
-
 /* Simple fade-in animation */
 @keyframes fadeIn {
   from {
@@ -243,13 +209,10 @@ button {
     transform: translateY(0);
   }
 }
-
-
 /* Wrapper safety */
 .user-type-group .input-wrapper {
   position: relative;
 }
-
 /* Dropdown itself */
 .user-type-select {
   width: 100%;
@@ -264,7 +227,6 @@ button {
   appearance: none;
   outline: none;
 }
-
 /* Icon position */
 .user-type-group .field-icon {
   position: absolute;
@@ -278,7 +240,6 @@ button {
 .user-type-group .field-icon {
   color: #2e7d32; /* green */
 }
-
 /* Focus */
 .user-type-select:focus {
   border-color: #4caf50;

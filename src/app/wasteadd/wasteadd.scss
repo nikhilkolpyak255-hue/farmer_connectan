@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #212121;
+    background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.bg-decoration {
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(26, 94, 32, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(76, 175, 80, 0.06) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+/* Header */
+.header-section {
+    background: white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+}
+
+.header-section .container {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .header-section .container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.brand-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    box-shadow: 0 16px 40px rgba(76, 175, 80, 0.3);
+}
+
+.brand-title {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    color: #1a5e20;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.brand-subtitle {
+    color: #616161;
+    font-size: 1.125rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Hero */
+.hero-section {
+    margin: 0;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: relative;
+    height: clamp(250px, 40vh, 450px);
+    width: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 94, 32, 0.9), rgba(76, 175, 80, 0.7));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.hero-content h2 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    color: white;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: clamp(1.125rem, 4vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    max-width: 600px;
+}
+
+/* Form */
+.form-section-wrapper {
+    padding: 4rem 1rem;
+}
+
+.main-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.card-header {
+    padding: 3rem 2.5rem;
+    background: linear-gradient(135deg, #f8fcf9, #f1f8e9);
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    color: #1a5e20;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: #45a049;
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    background: #4caf50;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.waste-form {
+    padding: 0 2.5rem 3rem;
+}
+
+.form-group-section {
+    border: 2px solid #e8f5e8;
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(135deg, #fafbfc, #f8fcf9);
+}
+
+.form-group-section legend {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #1a5e20;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.input-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+    .input-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.input-field label {
+    font-weight: 600;
+    color: #616161;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input-field input {
+    padding: 1.25rem 1.5rem;
+    border: 2px solid #e0e7ff;
+    border-radius: 14px;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: inherit;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.15);
+}
+
+.upload-area {
+    margin-top: 2rem;
+}
+
+.drop-zone {
+    border: 3px dashed #a7f3d0;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(165, 243, 208, 0.15);
+    position: relative;
+}
+
+.drop-zone:hover {
+    border-color: #4caf50;
+    background: rgba(165, 243, 208, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(76, 175, 80, 0.15);
+}
+
+.drop-zone.drag-over {
+    border-color: #4caf50;
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.file-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-icon {
+    width: 80px;
+    height: 80px;
+    background: #e8f5e8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: #45a049;
+    font-size: 2rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.drop-zone p {
+    margin: 0 0 0.5rem 0;
+    color: #616161;
+}
+
+.drop-zone p:first-child {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.upload-hint {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.error-message {
+    color: #ef5350;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 3rem 0 0;
+    border-top: 3px solid #e8f5e8;
+    margin-top: 3rem;
+}
+
+@media (min-width: 640px) {
+    .form-actions {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .form-actions .btn {
+        flex: 0 0 auto;
+    }
+}
+
+.btn {
+    padding: 1.25rem 2.5rem;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    box-shadow: 0 12px 30px rgba(76, 175, 80, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(76, 175, 80, 0.4);
+}
+
+.btn-secondary {
+    background: white;
+    color: #616161;
+    border: 2px solid #e0e7ff;
+}
+
+.btn-secondary:hover {
+    border-color: #4caf50;
+    color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(76, 175, 80, 0.15);
+}
+
+.success-message {
+    padding: 2rem 2.5rem;
+    background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+    text-align: center;
+    color: #2e7d32;
+    font-weight: 600;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .container,
+    .form-section-wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .main-card {
+        margin: 0 -1rem;
+        border-radius: 20px 20px 0 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

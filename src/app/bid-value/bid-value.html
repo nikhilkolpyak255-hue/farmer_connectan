@@ -1,0 +1,51 @@
+<app-customer-navbar></app-customer-navbar>
+<div class="bid-container">
+
+    <div class="bid-card">
+
+        <!-- LEFT SIDE (Image) -->
+        <div class="bid-image">
+            <img [src]="bidvalue.img1" alt="Product Image">
+        </div>
+
+        <!-- RIGHT SIDE (Information) -->
+        <div class="bid-info">
+            <h2>Product ID: {{ bidvalue.productId }}</h2>
+
+            <p><strong>Bid ID:</strong> {{ bidvalue.bid }}</p>
+            <p><strong>Customer ID:</strong> {{ bidvalue.customerId }}</p>
+
+            <p>
+                <strong>Current Price:</strong>
+                ₹ {{newBidValue}}
+            </p>
+
+            <p>
+                <strong>Date:</strong>
+                {{ bidvalue.dateTime }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ bidvalue.status === 1 ? 'Active' : 'Closed' }}
+            </p>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM SECTION -->
+    <div class="bid-action">
+
+        <input type="number" [(ngModel)]="bidvalue.biddingPrice" placeholder="Enter Your Bidding Value" required min="1"
+            name="bidAmount" />
+
+        <button (click)="placeBid(bidvalue.bid)"
+            [disabled]="!bidvalue.biddingPrice ||  bidvalue.biddingPrice<= newBidValue">
+            Place Bidd
+        </button>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

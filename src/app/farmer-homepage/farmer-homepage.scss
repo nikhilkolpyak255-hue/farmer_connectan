@@ -1,4 +1,158 @@
-.carousel video,
-.carousel img {
-  object-fit: cover;
+/* ================= GLOBAL ================= */
+body {
+  background: #f1f8e9;
+  color: #1f2937;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= SECTION ================= */
+.section {
+  padding: 70px 8%;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 30px;
+  color: #166534;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.section p {
+  max-width: 780px;
+  margin: 0 auto 45px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+/* ================= GRID ================= */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* ================= CARD ================= */
+.step {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(22, 163, 74, 0.12);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* TOP STRIP */
+.step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+}
+
+/* HOVER EFFECT */
+.step:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(22, 163, 74, 0.25);
+}
+
+/* LIGHT GLOW ON HOVER */
+.step::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.step:hover::after {
+  opacity: 1;
+}
+
+/* ================= CONTENT ================= */
+.step h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #16a34a;
+}
+
+.step p {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* ================= ICON ANIMATION ================= */
+.step i {
+  margin-right: 6px;
+  transition: all 0.3s ease;
+}
+
+/* subtle professional animation (not cartoon) */
+.step:hover i {
+  transform: scale(1.15);
+}
+
+/* ================= SECTION COLORS ================= */
+.bidding .step h3 { color: #15803d; }
+.junction .step h3 { color: #16a34a; }
+.waste .step h3 { color: #166534; }
+
+/* ================= ICON COLORS ================= */
+.bidding .fa-gavel { color: #6a1b9a; }
+.bidding .fa-chart-line { color: #1e88e5; }
+.bidding .fa-handshake { color: #2e7d32; }
+.bidding .fa-eye { color: #f9a825; }
+
+.junction .fa-people-group { color: #1565c0; }
+.junction .fa-book-open { color: #8e24aa; }
+.junction .fa-users { color: #00897b; }
+.junction .fa-user-tie { color: #5d4037; }
+
+.waste .fa-recycle { color: #2e7d32; }
+.waste .fa-leaf { color: #43a047; }
+.waste .fa-earth-asia { color: #0277bd; }
+.waste .fa-indian-rupee-sign { color: #ef6c00; }
+
+/* ================= SCROLL ANIMATION ================= */
+.animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.7s ease;
+}
+
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* OPTIONAL VARIATIONS */
+.fade-left { transform: translateX(-60px); }
+.fade-right { transform: translateX(60px); }
+.zoom-in { transform: scale(0.85); }
+
+/* ================= STAGGER ================= */
+.step:nth-child(1) { transition-delay: 0.1s; }
+.step:nth-child(2) { transition-delay: 0.2s; }
+.step:nth-child(3) { transition-delay: 0.3s; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .section { padding: 50px 6%; }
+  .section h2 { font-size: 26px; }
+}
+
+@media (max-width: 480px) {
+  .section h2 { font-size: 22px; }
+  .section p { font-size: 14px; }
 }

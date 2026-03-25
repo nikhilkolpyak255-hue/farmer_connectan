@@ -1,0 +1,67 @@
+<app-farmer-navbar></app-farmer-navbar>
+
+
+<div class="bid-container" *ngFor="let bid of bidlist; let i = index">
+
+    <div class="check" >
+        <!-- @if (i===0) { -->
+        <div class="bid-card">
+
+
+            <!-- TOP SECTION -->
+            <div class="bid-top">
+
+                <!-- Left Image -->
+                <div class="bid-image">
+                    <img [src]="bid.img1" alt="Product Image">
+                </div>
+
+                <!-- Right Product Info -->
+                <div class="bid-product-info">
+                    <h3>Product ID: {{ bid.productId }}</h3>
+                    <p class="bid-date">
+                        {{ bid.datetime }}
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- DIVIDER -->
+            <hr>
+
+        </div>
+        <!-- } -->
+    </div>
+</div>
+
+
+<div class="bid-container">
+
+    <div class="bid-card" *ngFor="let bid of bidlist">
+
+        <p><strong>Customer Name:</strong> {{ bid.customername }}</p>
+
+        <p><strong>Customer ID:</strong> {{ bid.customerId }}</p>
+
+        <p><strong>City:</strong> {{ bid.city }}</p>
+
+        <p class="bid-price">
+            <strong>Bidding Price:</strong> ₹ {{ bid.biddingPrice }}
+        </p>
+
+        <div class="bid-actions">
+            <button class="accept-btn" (click)="acceptBid(bid.bid)">
+                Accept
+            </button>
+
+            <button class="reject-btn" (click)="rejectBid(bid.bid)">
+                Reject
+            </button>
+        </div>
+
+    </div>
+
+
+</div>
+
+<app-footer></app-footer>

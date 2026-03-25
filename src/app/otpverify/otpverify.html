@@ -1,0 +1,55 @@
+<div class="otp-container">
+  <div class="otp-card">
+
+    <h2>OTP Verification</h2>
+    <p class="subtitle">Enter the OTP sent to your email</p>
+
+    <form #form="ngForm" (ngSubmit)="verifyOtp(form)">
+
+      <!-- OTP Input -->
+      <div class="form-group">
+        <input type="text"
+               name="otp"
+               [(ngModel)]="otp"
+               #otpRef="ngModel"
+               required
+               minlength="6"
+               maxlength="6"
+               pattern="^[0-9]{6}$"
+               placeholder="Enter 6-digit OTP"
+               class="form-control"
+               [class.invalid]="otpRef.invalid && otpRef.touched">
+
+        <!-- Validation Messages -->
+        <div class="validation-msg" *ngIf="otpRef.invalid && otpRef.touched">
+          <div *ngIf="otpRef.errors?.['required']">
+            OTP is required
+          </div>
+          <div *ngIf="otpRef.errors?.['pattern']">
+            OTP must be 6 digits
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend Error -->
+      <div class="error-msg" *ngIf="otpError">
+        {{ otpError }}
+      </div>
+
+      <!-- Verify Button -->
+      <button type="submit" class="verify-btn">
+        Verify OTP
+      </button>
+
+      <!-- Back Button (Only when OTP not match) -->
+      <button *ngIf="otpError"
+              type="button"
+              class="back-btn"
+              (click)="goBack()">
+        Back
+      </button>
+
+    </form>
+
+  </div>
+</div>

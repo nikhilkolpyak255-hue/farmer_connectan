@@ -66,9 +66,9 @@
 
 <nav class="og-nav" [class.is-open]="menuOpen">
     <div class="nav-inner">
-        <a class="brand" routerLink="/" (click)="closeAll()">
+        <a class="brand" routerLink="/farmerhomepage" (click)="closeAll()">
             <!-- <i class="fa-solid fa-leaf"></i> -->
-             🌾
+            🌾
             <span>Farmer-Connect</span>
         </a>
 
@@ -78,7 +78,7 @@
 
         <ul class="links" [class.show]="menuOpen">
             <li>
-                <a routerLink="/about" (click)="closeAll()">
+                <a routerLink="/aboutus" (click)="closeAll()">
                     <i class="fa-solid fa-circle-info"></i> About Us
                 </a>
             </li>
@@ -95,8 +95,8 @@
                     <i class="fa-solid fa-chevron-down caret"></i>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a routerLink="/bids/view" (click)="closeAll()">View Bid</a></li>
-                    <li><a routerLink="/bids/add" (click)="closeAll()">Add Bid</a></li>
+                    <li><a routerLink="/farmerbidrequest" (click)="closeAll()">View Bid</a></li>
+                    <li><a routerLink="/product" (click)="closeAll()">Add Bid</a></li>
                 </ul>
             </li>
 
@@ -112,20 +112,8 @@
                     <i class="fa-solid fa-chevron-down caret"></i>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a routerLink="/junction/add-equipment" (click)="closeAll()">Add Equipment</a></li>
-                    <li><a routerLink="/junction/rent-equipment" (click)="closeAll()">Rent Equipment</a></li>
-                </ul>
-            </li>
-
-            <!-- ✅ MANAGEMENT DROPDOWN ADDED -->
-            <li class="dropdown" [class.open]="openDropdown === 'management'">
-                <button (click)="toggleDropdown('management')">
-                    <i class="fa-solid fa-sitemap"></i> Management
-                    <i class="fa-solid fa-chevron-down caret"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a routerLink="/management/view-request" (click)="closeAll()">View Request</a></li>
-                    <li><a routerLink="/management/add-west" (click)="closeAll()">Add West</a></li>
+                    <li><a routerLink="/addjunction" (click)="closeAll()">Add Equipment</a></li>
+                    <li><a routerLink="/rentjunction" (click)="closeAll()">Rent Equipment</a></li>
                 </ul>
             </li>
 
@@ -138,6 +126,3 @@
 
     </div>
 </nav>
-
-
- 

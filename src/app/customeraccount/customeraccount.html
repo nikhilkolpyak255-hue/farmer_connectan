@@ -1,0 +1,137 @@
+<app-customer-navbar></app-customer-navbar>
+
+<section class="profile-page">
+    <div class="profile-card">
+
+        <!-- HEADER -->
+        <div class="profile-header">
+            <div class="profile-status-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Active Farmer</span>
+            </div>
+
+            <div class="profile-avatar" (click)="profileInput.click()">
+                <img *ngIf="avatarPreview" [src]="customer.customerImg" class="avatar-img" alt="Profile">
+                <div *ngIf="!avatarPreview" class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                    <span>Add Photo</span>
+                </div>
+                <div class="avatar-overlay">
+                    <i class="fas fa-camera"></i> Change
+                </div>
+            </div>
+
+            <input #profileInput type="file" accept="image/*" (change)="onFileChange($event)" style="display: none;">
+
+            <div class="profile-info">
+                <h2>Update Profile</h2>
+                <p class="profile-subtitle">Keep your Farmer Connect information up to date</p>
+                <div class="profile-stats">
+                    <span>{{ customer.phoneno || 'Update phone' }} <i class="fas fa-phone"></i></span>
+                    <span>{{ customer.city || 'Solapur' }}, {{ customer.state || 'Maharashtra' }}
+                        <i class="fas fa-map-marker-alt"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <form #farmerForm="ngForm" (ngSubmit)="onSubmit(farmerForm)">
+            <div class="form-grid">
+
+                <!-- PERSONAL INFO -->
+                <div class="form-column">
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-user"></i> Personal Information
+                        </div>
+
+                        <!-- NAME -->
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-user"></i>
+                                <input type="text" placeholder="Farmer Name *" name="username"
+                                    [(ngModel)]="customer.username" required (keypress)="onlyText($event)">
+                            </div>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" placeholder="Email *" name="email" [(ngModel)]="customer.email"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- PASSWORD (NEW) -->
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Password *" name="password"
+                                    [(ngModel)]="customer.password" required minlength="6">
+                            </div>
+                        </div>
+                        <!-- PHONE -->
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" placeholder="Mobile Number *" name="phoneno"
+                                    [(ngModel)]="customer.phoneno" required (keypress)="onlyNumbers($event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOCATION INFO -->
+                <div class="form-column">
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-map-marker-alt"></i> Location Details
+                        </div>
+
+                        <!-- ADDRESS -->
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-map"></i>
+                                <textarea placeholder="Complete Address *" rows="3" name="address"
+                                    [(ngModel)]="customer.address" required
+                                    (keypress)="allowTextNumbers($event)"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- STATE + CITY -->
+                        <div class="form-field">
+                            <div class="state-city-row">
+                                <div class="icon-input half">
+                                    <i class="fas fa-globe"></i>
+                                    <input type="text" placeholder="State *" name="state" [(ngModel)]="customer.state"
+                                        required (keypress)="onlyText($event)">
+                                </div>
+
+                                <div class="icon-input half">
+                                    <i class="fas fa-city"></i>
+                                    <input type="text" placeholder="City *" name="city" [(ngModel)]="customer.city"
+                                        required (keypress)="onlyText($event)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="form-actions">
+                <button type="button" class="btn delete-account" (click)="deleteAccount()">
+                    <i class="fas fa-trash-alt"></i> <span>Delete Account</span>
+                </button>
+
+                <button type="submit" class="btn submit" [disabled]="farmerForm.invalid || !profileFile">
+                    <i class="fas fa-check-circle"></i> <span>Save Profile</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<app-footer></app-footer>

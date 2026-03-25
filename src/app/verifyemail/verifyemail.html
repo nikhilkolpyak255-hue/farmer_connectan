@@ -1,0 +1,87 @@
+<div *ngIf="loader">
+    <app-loader></app-loader>
+</div>
+
+
+<div class="verify-container" *ngIf="!loader">
+  <div class="verify-card">
+
+    <h2>Email Verification</h2>
+
+    <form #form="ngForm" (ngSubmit)="verify(form)">
+
+      <!-- Email -->
+      <div class="form-group">
+        <input type="email"
+               name="email"
+               [(ngModel)]="email"
+               #emailRef="ngModel"
+               required
+               email
+               placeholder="Enter your email"
+               class="form-control"
+               [class.invalid]="emailRef.invalid && emailRef.touched">
+
+        <!-- Email Validation Messages -->
+        <div class="validation-msg" *ngIf="emailRef.invalid && emailRef.touched">
+          <div *ngIf="emailRef.errors?.['required']">
+            Email is required
+          </div>
+          <div *ngIf="emailRef.errors?.['email']">
+            Enter a valid email
+          </div>
+        </div>
+      </div>
+
+      <!-- Role Selection -->
+      <div class="form-group">
+        <label class="role-label">Select Role</label>
+
+        <div class="radio-wrapper"
+             [class.invalid]="roleRef.invalid && roleRef.touched">
+
+          <label>
+            <input type="radio"
+                   name="role"
+                   [(ngModel)]="role"
+                   #roleRef="ngModel"
+                   value="farmer"
+                   required>
+            Farmer
+          </label>
+
+          <label>
+            <input type="radio"
+                   name="role"
+                   [(ngModel)]="role"
+                   value="customer"
+                   required>
+            Customer
+          </label>
+        </div>
+
+        <!-- Role Validation -->
+        <div class="validation-msg" *ngIf="roleRef.invalid && roleRef.touched">
+          Please select a role
+        </div>
+      </div>
+
+      <!-- Backend Error -->
+      <div class="error-msg" *ngIf="verifyError">
+        {{ verifyError }}
+      </div>
+
+      <!-- Buttons -->
+      <button type="submit" class="verify-btn">
+        Verify Email
+      </button>
+
+      <button type="button" class="back-btn" (click)="goBack()">
+        Back
+      </button>
+
+    </form>
+
+  </div>
+</div>
+

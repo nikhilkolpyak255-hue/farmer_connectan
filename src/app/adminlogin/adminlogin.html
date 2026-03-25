@@ -1,0 +1,50 @@
+<div class="login-bg">
+  <div class="login-card">
+
+    <div class="avatar">
+      <i class="fas fa-user-shield"></i>
+    </div>
+
+    <h2>Login</h2>
+    <p>Access your admin dashboard</p>
+
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+
+      <!-- Username -->
+      <div class="input-box">
+        <i class="fas fa-user user-icon"></i>
+        <input type="text" name="username" placeholder="Enter Username" [(ngModel)]="username" #usernameRef="ngModel"
+          required>
+      </div>
+
+      <div class="error" *ngIf="usernameRef.invalid && usernameRef.touched">
+        Username is required
+      </div>
+
+      <!-- Password -->
+      <div class="input-box">
+        <i class="fas fa-lock password-icon"></i>
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="password" #passwordRef="ngModel"
+          required minlength="6">
+      </div>
+
+      <div class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
+        <span *ngIf="passwordRef.errors?.['required']">Password is required</span>
+        <span *ngIf="passwordRef.errors?.['minlength']">
+          Minimum 6 characters required
+        </span>
+      </div>
+
+      <!-- Login Error -->
+      <div class="error" *ngIf="loginError">
+        Invalid username or password
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid">
+        Login
+      </button>
+
+    </form>
+
+  </div>
+</div>

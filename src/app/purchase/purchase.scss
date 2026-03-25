@@ -1,0 +1,57 @@
+.product-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px;
+    border-bottom:1px solid #ddd;
+    background:#f7f7f7;
+}
+
+.card-left img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.card-middle{
+    flex:1;
+    margin-left:20px;
+}
+
+.card-middle h3{
+    margin:0;
+    font-size:20px;
+}
+
+.card-middle p{
+    margin:5px 0;
+    color:#666;
+}
+
+.card-right{
+    text-align:right;
+}
+
+.date{
+    font-size:12px;
+    color:#777;
+}
+
+.price{
+    color:green;
+    margin:5px 0;
+}
+
+.bid-btn{
+    background:#28a745;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.bid-btn:hover{
+    background:#218838;
+}

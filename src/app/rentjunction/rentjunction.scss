@@ -1,0 +1,78 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.property-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.title {
+    font-size: 20px;
+    margin: 0 0 6px;
+}
+
+.price {
+    color: #2e7d32;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.info {
+    display: flex;
+    gap: 6px;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.label {
+    color: #444;
+}
+
+.address {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 14px;
+}
+
+.rent-btn {
+    width: 100%;
+    padding: 10px;
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.rent-btn:hover {
+    background: #0d47a1;
+}

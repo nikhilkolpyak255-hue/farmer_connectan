@@ -1,0 +1,136 @@
+.verify-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.verify-card {
+    background: #fff;
+    width: 380px;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.verify-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2E7D32;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.role-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 14px;
+}
+
+.radio-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+/* Custom Radio */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    margin-right: 6px;
+    transition: 0.3s;
+}
+
+input[type="radio"]:checked {
+    border-color: #2E7D32;
+}
+
+input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    background: #2E7D32;
+    border-radius: 50%;
+}
+
+label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.verify-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.verify-btn:hover {
+    background: #388E3C;
+}
+
+.back-btn {
+    width: 100%;
+    padding: 10px;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #ddd;
+}
+.invalid {
+  border-color: #d32f2f !important;
+}
+
+.validation-msg {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.error-msg {
+    color: #d32f2f;
+    font-size: 13px;
+    margin-bottom: 10px;
+    text-align: center;
+}

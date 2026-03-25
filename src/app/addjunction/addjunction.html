@@ -1,0 +1,110 @@
+<app-farmer-navbar></app-farmer-navbar>
+
+<section class="profile-page">
+    <div class="profile-card">
+
+        <!-- IMAGE UPLOAD ROW -->
+        <div class="image-upload-row">
+            <!-- Primary Image -->
+            <div class="profile-avatar" (click)="image1Input.click()">
+                <img *ngIf="image1Preview" [src]="image1Preview" class="avatar-img" alt="Primary Photo">
+                <div *ngIf="!image1Preview" class="avatar-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <span>Primary Photo</span>
+                </div>
+                <div class="avatar-overlay">
+                    <i class="fas fa-camera"></i> Upload
+                </div>
+            </div>
+            <input #image1Input type="file" accept="image/jpeg,image/jpg,image/png,image/webp"
+                (change)="onFileSelect($event, 'image1')" style="display: none;">
+
+            <!-- Secondary Image -->
+            <div class="profile-avatar" (click)="image2Input.click()">
+                <img *ngIf="image2Preview" [src]="image2Preview" class="avatar-img" alt="Secondary Photo">
+                <div *ngIf="!image2Preview" class="avatar-placeholder">
+                    <i class="fas fa-images"></i>
+                    <span>Additional Photo</span>
+                </div>
+                <div class="avatar-overlay">
+                    <i class="fas fa-camera"></i> Upload
+                </div>
+            </div>
+            <input #image2Input type="file" accept="image/jpeg,image/jpg,image/png,image/webp"
+                (change)="onFileSelect($event, 'image2')" style="display: none;">
+        </div>
+
+        <!-- FORM -->
+        <form #junctionForm="ngForm" (ngSubmit)="onSubmit(junctionForm)">
+            <div class="form-grid">
+
+                <!-- JUNCTION INFO -->
+                <div class="form-column">
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-map-marker-alt"></i> Junction Information
+                        </div>
+
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" placeholder="Junction Name *" name="juncname"
+                                    [(ngModel)]="junction.juncname" required>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-coins"></i>
+                                <input type="number" placeholder="Cost per Day *" name="cost"
+                                    [(ngModel)]="junction.cost" required>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-list-ul"></i>
+                                <textarea placeholder="Facilities & Description *" name="description"
+                                    [(ngModel)]="junction.description" rows="4" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOCATION -->
+                <div class="form-column">
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-map-location-dot"></i> Location
+                        </div>
+
+                        <div class="form-field">
+                            <div class="icon-input">
+                                <i class="fas fa-map"></i>
+                                <textarea placeholder="Complete Address *" name="address" rows="3"
+                                    [(ngModel)]="junction.address" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="form-actions">
+                <button type="button" class="btn delete-account" (click)="junctionForm.resetForm()">
+                    <i class="fas fa-undo"></i> <span>Reset</span>
+                </button>
+
+                <button type="submit" class="btn submit" [disabled]="submitting">
+                    <i class="fas fa-check-circle" *ngIf="!submitting"></i>
+                    <i class="fas fa-spinner fa-spin" *ngIf="submitting"></i>
+                    <span>{{ submitting ? 'Saving...' : 'Save Junction' }}</span>
+                </button>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+<app-footer></app-footer>

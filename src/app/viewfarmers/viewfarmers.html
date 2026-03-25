@@ -1,6 +1,16 @@
-
-@for (farmer of farmers(); track $index) {
-  <div class="farmer-card" >
+<div class="search-wrapper">
+  <div class="search-box">
+    <i class="fas fa-search search-icon"></i>
+    <input type="search" class="search-input" placeholder="Search crops, markets, suppliers..."
+      [(ngModel)]="searchTerm">
+    <button class="search-btn">
+      Search
+    </button>
+  </div>
+</div>
+@for (farmer of farmers() | filter:searchTerm; track farmer.fid ) {
+@if (farmer.status==1) {
+<div class="farmer-card">
   <!-- Left: Farmer Info -->
   <div class="card-info">
     <div class="card-header">
@@ -32,19 +42,22 @@
         <div class="value">{{ farmer.farmerAdhar | slice:0:4 }}-xxxx-xxxx</div>
       </div>
 
-      <!-- Buttons -->
+      <!-- Single Full-width Block Button -->
       <div class="card-buttons">
-        <button class="btn block" (click)="blockFarmer( )">Block</button>
-        <button class="btn unblock" (click)="unblockFarmer( )">Unblock</button>
+        <button class="btn block full-width" (click)="blockFarmer(farmer.fid)">
+          Block To {{farmer.username}}
+        </button>
       </div>
     </div>
   </div>
 
   <!-- Right: Images -->
   <div class="card-images">
-    <img *ngIf="farmer.farmerAdhar" [src]="farmer.farmerAdhar" alt="Aadhar Front">
-    <img *ngIf="farmer.farmerAdharback" [src]="farmer.farmerAdharback" alt="Aadhar Back">
+    <img *ngIf="farmer.farmerAdhar" [src]="farmer.farmerAdhar" alt="Aadhar Front" loading="lazy">
+    <img *ngIf="farmer.farmerAdharback" [src]="farmer.farmerAdharback" alt="Aadhar Back" loading="lazy">
   </div>
 </div>
+
+}
 
 }

@@ -1,6 +1,6 @@
 
 export class Farmer {
-    id: Number = 0;
+    fid: Number = 0;
     username: string = '';
     password: string = '';
     email: string = '';
@@ -11,6 +11,7 @@ export class Farmer {
     status: Number = 0;
     role:string='';
     datetime: string | any;
+    farmerImg:string | any='';
     farmerAdharback: string | any = '';
     farmerAdhar:string | any='';
    

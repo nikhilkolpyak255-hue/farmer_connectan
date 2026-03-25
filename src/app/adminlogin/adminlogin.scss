@@ -1,0 +1,105 @@
+.login-bg {
+  height: 100vh;
+  background-color: #63c85c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background: #f7fff5;
+  width: 360px;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Avatar */
+.avatar {
+  width: 90px;
+  height: 90px;
+  background: #cceca8;
+  border-radius: 50%;
+  margin: -75px auto 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar i {
+  font-size: 40px;
+  color: #bb1082;
+}
+
+h2 {
+  color: #2e7d32;
+  margin-top: 10px;
+}
+
+p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  background: #eaf3ff;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.user-icon {
+  margin-right: 10px;
+  color: #881dc2;
+}
+
+.password-icon {
+  margin-right: 10px;
+  color: #c1a710;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* Error text */
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1b5e20;
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-align: left;
+}

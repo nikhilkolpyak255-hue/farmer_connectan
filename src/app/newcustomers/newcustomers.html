@@ -1,0 +1,60 @@
+<div class="search-wrapper">
+  <div class="search-box">
+    <i class="fas fa-search search-icon"></i>
+    <input type="search" class="search-input" placeholder="Search crops, markets, suppliers..."
+      [(ngModel)]="searchTerm">
+    <button class="search-btn">
+      Search
+    </button>
+  </div>
+</div>
+
+@for (customer of customers(); track customer.cid) {
+
+@if (customer.status==0) {
+<div class="farmer-card">
+  <!-- Left: Customer Info -->
+  <div class="card-info">
+    <div class="card-header">
+      <h2>{{ customer.username }}</h2>
+      <span class="status" [class.active]="customer.status === 1">
+        {{ customer.status === 1 ? 'Active' : 'Inactive' }}
+      </span>
+    </div>
+
+    <div class="card-body">
+      <div class="info-row">
+        <div class="label">Email:</div>
+        <div class="value">{{ customer.email }}</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Phone:</div>
+        <div class="value">{{ customer.phoneno }}</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Address:</div>
+        <div class="value">{{ customer.address }}, {{ customer.city }}, {{ customer.state }}</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Customer ID:</div>
+        <div class="value">{{ customer.cid }}</div>
+      </div>
+
+      <!-- Single Full-width Unblock Button (Green) -->
+      <div class="card-buttons">
+        <button class="btn unblock full-width" (click)="approve(customer.cid)">
+          <i class="fas fa-unlock"></i>
+          Approve to {{customer.username}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Images -->
+  <div class="card-images">
+    <img *ngIf="customer.customerAdhar" [src]="customer.customerAdhar" alt="Aadhar Front" loading="lazy">
+    <img *ngIf="customer.customerAdharback" [src]="customer.customerAdharback" alt="Aadhar Back" loading="lazy">
+  </div>
+</div>
+}
+}

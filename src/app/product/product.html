@@ -1,0 +1,196 @@
+<app-farmer-navbar></app-farmer-navbar>
+<body>
+
+   
+    <form #productform="ngForm">
+
+        <div class="container py-5 ">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <h2 class="text-center form-title mb-4">
+                        <i class="fa-solid fa-seedling"></i>Add product
+                    </h2>
+
+                    <!-- IMAGE UPLOAD -->
+                    <div class="upload-container mb-3">
+
+                        <!-- IMAGE 1 -->
+                        <label class="upload-box">
+                            <img *ngIf="preview1" [src]="preview1" class="single-preview">
+
+                            <div class="placeholder" *ngIf="!preview1">
+                                <i class="fa fa-cloud-arrow-up"></i>
+                                <p>Upload Image 1</p>
+                            </div>
+
+                            <input type="file" hidden accept="image/*" (change)="onImageSelect($event, 1)">
+                        </label>
+
+                        <!-- IMAGE 2 -->
+                        <label class="upload-box">
+                            <img *ngIf="preview2" [src]="preview2" class="single-preview">
+
+                            <div class="placeholder" *ngIf="!preview2">
+                                <i class="fa fa-cloud-arrow-up"></i>
+                                <p>Upload Image 2</p>
+                            </div>
+
+                            <input type="file" hidden accept="image/*" (change)="onImageSelect($event, 2)">
+                        </label>
+
+                    </div>
+
+                    <p class="text-danger" *ngIf="!image1 || !image2">
+                        2 images are required
+                    </p>
+                    <form #f="ngForm" novalidate><br>
+
+                        <div class="row">
+
+                            <!-- Product name -->
+                            <div class="col-sm-6">
+                                <small class="input-title">Product name</small>
+                                <div class="form-floating icon-input">
+                                    <i class="fa-solid fa-pen"></i>
+
+                                    <input type="text" class="form-control" id="productname" name="productname"
+                                        placeholder="Product name" [(ngModel)]="productName"
+                                        #productname="ngModel" required minlength="3">
+
+                                    <label for="productname">Enter Product name</label>
+                                </div>
+
+                                <small class="text-danger"
+                                    *ngIf="productname.errors?.['required'] && productname.touched">
+                                    Product name is required
+                                </small>
+                                <small class="text-danger"
+                                    *ngIf="productname.errors?.['minlength'] && productname.touched">
+                                    Minimum 3 characters required
+                                </small>
+                            </div>
+
+                            <!-- Product Type -->
+                            <div class="col-sm-6">
+                                <small class="input-title">Product Type</small>
+                                <div class="form-floating icon-input">
+                                    <i class="fa-solid fa-tags"></i>
+
+                                    <input type="text" class="form-control" id="producttype" name="producttype"
+                                        placeholder="Product Type" [(ngModel)]="product.productType"
+                                        #producttype="ngModel" required>
+
+                                    <label for="producttype">Enter Product Type</label>
+                                </div>
+
+                                <small class="text-danger"
+                                    *ngIf="producttype.errors?.['required'] && producttype.touched">
+                                    Product type is required
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Quantity -->
+                            <div class="col-md-6">
+                                <small class="input-title">Quantity</small>
+                                <div class="form-floating icon-input">
+                                    <i class="fa-solid fa-weight"></i>
+
+                                    <input type="number" class="form-control" id="quantity" name="quantity"
+                                        placeholder="Quantity" [(ngModel)]="product.quantity" #quantity="ngModel"
+                                        required min="1">
+
+                                    <label for="quantity">Enter Quantity</label>
+                                </div>
+
+                                <small class="text-danger" *ngIf="quantity.errors?.['required'] && quantity.touched">
+                                    Quantity is required
+                                </small>
+                                <small class="text-danger" *ngIf="quantity.errors?.['min'] && quantity.touched">
+                                    Quantity must be greater than 0
+                                </small>
+                            </div>
+
+                            <!-- Quality -->
+                            <div class="col-md-6">
+                                <small class="input-title">Quality</small>
+                                <div class="form-floating icon-input">
+                                    <i class="fa-solid fa-star"></i>
+
+                                    <input type="text" class="form-control" id="quality" name="quality"
+                                        placeholder="Quality" [(ngModel)]="product.quantity" #quality="ngModel"
+                                        required>
+
+                                    <label for="quality">Enter Quality</label>
+                                </div>
+
+                                <small class="text-danger" *ngIf="quality.errors?.['required'] && quality.touched">
+                                    Quality is required
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Price -->
+                            <div class="col-sm-6">
+                                <small class="input-title">Price</small>
+                                <div class="form-floating icon-input">
+                                    <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                                    <input type="number" class="form-control" id="price" name="price"
+                                        placeholder="Price" [(ngModel)]="product.price" #price="ngModel" required
+                                        min="1">
+
+                                    <label for="price">Enter Price</label>
+                                </div>
+
+                                <small class="text-danger" *ngIf="price.errors?.['required'] && price.touched">
+                                    Price is required
+                                </small>
+                                <small class="text-danger" *ngIf="price.errors?.['min'] && price.touched">
+                                    Price must be greater than 0
+                                </small>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="col-sm-6">
+                                <small class="input-title">Description</small>
+                                <div class="form-floating icon-input">
+                                    <i class="fa-solid fa-note-sticky"></i>
+
+                                    <input type="text" class="form-control" id="description" name="description"
+                                        placeholder="Description" [(ngModel)]="product.description"
+                                        #description="ngModel" minlength="10">
+
+                                    <label for="description">Enter Description</label>
+                                </div>
+
+                                <small class="text-danger"
+                                    *ngIf="description.errors?.['minlength'] && description.touched">
+                                    Description must be at least 10 characters
+                                </small>
+                            </div>
+                        </div>
+
+                        <br><br>
+
+                        <!-- Submit -->
+                        <button type="submit" (click)="submit()" class="btn btn-green w-100" [disabled]="f.invalid">
+                            <i class="fa-solid fa-check"></i>
+                            Submit Product
+                        </button>
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</body>
+<app-footer></app-footer>

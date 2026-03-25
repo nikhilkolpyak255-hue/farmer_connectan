@@ -1,0 +1,13 @@
+<div class="card-container">
+    @for (item of contact(); track item.id) {
+    <div class="card">
+        <h3>{{ item.name }}</h3>
+        <p class="email">{{ item.email }}</p>
+        <p class="message">{{ item.message }}</p>
+        <button class="complete-btn" (click)="complete(item.id)">
+            <i class="fa fa-check-circle"></i>
+            Complete
+        </button>
+    </div>
+    }
+</div>

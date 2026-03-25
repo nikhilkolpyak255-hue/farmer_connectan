@@ -1,0 +1,63 @@
+<div class="search-wrapper">
+    <div class="search-box">
+        <i class="fas fa-search search-icon"></i>
+        <input type="search" class="search-input" placeholder="Search crops, markets, suppliers..."
+            [(ngModel)]="searchTerm">
+        <button class="search-btn">
+            Search
+        </button>
+    </div>
+</div>
+@for (farmer of farmers() | filter:searchTerm; track farmer.fid ) {
+@if (farmer.status==0) {
+<div class="farmer-card">
+    <!-- Left: Farmer Info -->
+    <div class="card-info">
+        <div class="card-header">
+            <h2>{{ farmer.username }}</h2>
+            <span class="status" [class.active]="farmer.status === 1">
+                {{ farmer.status === 1 ? 'Active' : 'Inactive' }}
+            </span>
+        </div>
+
+        <div class="card-body">
+            <div class="info-row">
+                <div class="label">Email:</div>
+                <div class="value">{{ farmer.email }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Phone:</div>
+                <div class="value">{{ farmer.phoneno }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Address:</div>
+                <div class="value">{{ farmer.address }}, {{ farmer.city }}, {{ farmer.state }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Registered On:</div>
+                <div class="value">{{ farmer.datetime | date:'medium' }}</div>
+            </div>
+            <div class="info-row">
+                <div class="label">Aadhar No:</div>
+                <div class="value">{{ farmer.farmerAdhar | slice:0:4 }}-xxxx-xxxx</div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="card-buttons">
+        <button class="btn unblock full-width" (click)="approve(farmer.fid)">
+          <i class="fas fa-unlock"></i>
+          Approve to {{farmer.username}}
+        </button>
+      </div>
+        </div>
+    </div>
+
+    <!-- Right: Images -->
+    <div class="card-images">
+        <img *ngIf="farmer.farmerAdhar" [src]="farmer.farmerAdhar" alt="Aadhar Front">
+        <img *ngIf="farmer.farmerAdharback" [src]="farmer.farmerAdharback" alt="Aadhar Back">
+    </div>
+</div>
+}
+
+}

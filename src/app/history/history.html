@@ -1,0 +1,52 @@
+<app-customer-navbar></app-customer-navbar>
+
+<div class="history-container">
+
+  <h2>🧾 Your Bid History</h2>
+
+  <!-- 🔄 LOADER -->
+  <div *ngIf="loading" class="loader-container">
+    <div class="loader"></div>
+    <p>Loading your bids...</p>
+  </div>
+
+  <!-- DATA -->
+  <div *ngIf="!loading">
+
+    <!-- NO DATA -->
+    <div *ngIf="bidHistory.length === 0" class="no-data">
+      No bids placed yet.
+    </div>
+
+    <!-- CARDS -->
+    <div *ngFor="let b of bidHistory" class="history-card">
+
+      <!-- IMAGE -->
+      <div class="history-image">
+        <img [src]="b.img1" alt="Product">
+      </div>
+
+      <!-- DETAILS -->
+      <div class="history-info">
+        <h3>Product ID: {{ b.productId }}</h3>
+
+        <p><strong>Your Bid:</strong> ₹ {{ b.biddingPrice }}</p>
+
+        <p><strong>Date:</strong> {{ b.dateTime | date:'medium' }}</p>
+
+        <p>
+          <strong>Status:</strong>
+          <span [class.active]="b.status === 1"
+                [class.closed]="b.status !== 1">
+            {{ b.status === 1 ? 'Active' : 'Closed' }}
+          </span>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<app-footer></app-footer>

@@ -5,12 +5,111 @@
   font-family: Arial, sans-serif;
 }
 
+// .footer-container {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   padding: 0 20px;
+// }
+
+// .footer-box {
+//   max-width: 260px;
+//   margin: 15px 0;
+// }
+
+// .footer-box h3,
+// .footer-box h4 {
+//   color: #F2C94C;
+//   margin-bottom: 10px;
+// }
+
+// .footer-box p {
+//   font-size: 14px;
+//   line-height: 1.5;
+// }
+
+// .footer-box ul {
+//   list-style: none;
+//   padding: 0;
+// }
+
+// .footer-box ul li {
+//   margin: 7px 0;
+// }
+
+// .footer-box ul li a {
+//   color: #ffffff;
+//   text-decoration: none;
+// }
+
+// .footer-box ul li a:hover {
+//   text-decoration: underline;
+// }
+
+// form input,
+// form textarea {
+//   width: 100%;
+//   padding: 7px;
+//   margin: 6px 0;
+//   border-radius: 4px;
+//   border: none;
+// }
+
+// form button {
+//   width: 100%;
+//   padding: 8px;
+//   background: #F2C94C;
+//   border: none;
+//   font-weight: bold;
+//   cursor: pointer;
+// }
+
+// /* Responsive */
+// @media (max-width: 768px) {
+//   .footer-container {
+//     flex-direction: column;
+//     text-align: center;
+//   }
+// }
+// i
+// {
+//     font-size: 28px;
+//     margin: 0 5px;
+//     color: #ffffff;
+//     cursor: pointer;
+// }
+
+// /* Bottom */
+// .footer-bottom {
+//   text-align: center;
+//   border-top: 1px solid rgba(255,255,255,0.3);
+//   padding-top: 10px;
+//   font-size: 13px;
+// }
+
+// .footer-bottom span {
+//   color: #F2C94C;
+// }
+
+
+
+
+
+
+.footer {
+  background: rgba(3, 124, 3, 0.65);
+  color: #ffffff;
+  padding: 35px 0;
+  font-family: Arial, sans-serif;
+}
+
 .footer-container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
   flex-wrap: wrap;
   padding: 0 20px;
+  align-items: center;
 }
 
 .footer-box {
@@ -72,22 +171,113 @@ form button {
     text-align: center;
   }
 }
-i
-{
-    font-size: 28px;
-    margin: 0 5px;
-    color: #ffffff;
-    cursor: pointer;
+
+i {
+  font-size: 28px;
+  margin: 0 5px;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 /* Bottom */
 .footer-bottom {
   text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 10px;
   font-size: 13px;
 }
 
 .footer-bottom span {
   color: #F2C94C;
+}
+
+/* =========================
+   Contact Us Form
+========================= */
+
+.footer-box form {
+  width: 250px;
+}
+
+/* Inputs */
+.input-wrapper input,
+.input-wrapper textarea {
+  width: 100%;
+  padding: 7px;
+  margin: 6px 0;
+  border-radius: 4px;
+  border: 1.5px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  transition: 0.25s ease;
+}
+
+.input-wrapper textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+/* Focus */
+.input-wrapper input:focus,
+.input-wrapper textarea:focus {
+  border-color: #F2C94C;
+}
+
+/* =========================
+   Error Styling
+========================= */
+
+.input-error input,
+.input-error textarea {
+  border-color: #e53935;
+  background: #fff5f5;
+}
+
+.error-text {
+  font-size: 12px;
+  color: #e53935;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* =========================
+   Attractive Submit Button
+========================= */
+
+.footer-box form button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  color: #2e7d32;
+
+  background: linear-gradient(135deg, #F2C94C, #ffe082);
+  box-shadow: 0 8px 18px rgba(242, 201, 76, 0.45);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.footer-box form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(242, 201, 76, 0.65);
+  background: linear-gradient(135deg, #ffe082, #F2C94C);
+}
+
+/* Click / Active */
+.footer-box form button:active {
+  transform: scale(0.97);
+  box-shadow: 0 5px 12px rgba(242, 201, 76, 0.4);
+}
+
+/* Disabled State (Optional) */
+.footer-box form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
 }

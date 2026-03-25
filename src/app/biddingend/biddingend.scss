@@ -1,0 +1,103 @@
+.bid-container {
+    padding: 15px;
+    background: #f4f6f8;
+}
+
+.bid-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.bid-card:hover {
+    transform: translateY(-4px);
+}
+
+.bid-top {
+    display: flex;
+    align-items: center;
+}
+
+.bid-image img {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.bid-product-info {
+    margin-left: 15px;
+}
+
+.bid-product-info h3 {
+    margin: 0;
+    color: #1b5e20;
+}
+
+.bid-date {
+    font-size: 13px;
+    color: gray;
+}
+
+.bid-details {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.bid-price {
+    color: #2e7d32;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.bid-actions {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accept-btn {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.reject-btn {
+    background-color: #c62828;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.accept-btn:hover {
+    background-color: #1b5e20;
+}
+
+.reject-btn:hover {
+    background-color: #b71c1c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

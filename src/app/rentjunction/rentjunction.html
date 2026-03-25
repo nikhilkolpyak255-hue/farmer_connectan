@@ -1,0 +1,65 @@
+<app-farmer-navbar></app-farmer-navbar>
+<div class="search-wrapper">
+    <div class="search-box">
+        <i class="fas fa-search search-icon"></i>
+        <input type="search" class="search-input" placeholder="Search crops, markets, suppliers..."
+            [(ngModel)]="searchTerm">
+        <button class="search-btn">
+            Search
+        </button>
+    </div>
+</div>
+
+<!-- <div *ngIf="loader">
+    <app-loader></app-loader>
+</div> -->
+
+<div *ngIf="!loader">
+    <div class="card-container">
+        @for (jun of junction; track jun.jid) {
+
+        <div class="property-card">
+
+            <!-- Image -->
+            <div class="image-wrapper">
+                <img [src]="jun.img1 || 'assets/no-image.png'" alt="Junction Image">
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+                <h3 class="title">{{ jun.juncname }}</h3>
+
+                <p class="price">₹ {{ jun.cost }}</p>
+
+                <p class="desc">{{ jun.description }}</p>
+
+                <div class="info">
+                    <span class="label">Phone:</span>
+                    <span>{{ jun.phoneno }}</span>
+                </div>
+
+                <div class="info">
+                    <span class="label">Status:</span>
+                    <span>{{ jun.status }}</span>
+                </div>
+
+                <p class="address">{{ jun.address }}</p>
+
+                <button class="rent-btn" (click)="rentNow(jun.jid)">
+                    Rent Now
+                </button>
+            </div>
+
+        </div>
+
+        }
+
+    </div>
+</div>
+
+
+
+
+
+
+<app-footer></app-footer>

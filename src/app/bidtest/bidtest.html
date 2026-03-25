@@ -1,0 +1,53 @@
+<app-customer-navbar></app-customer-navbar>
+
+<div class="bid-container">
+
+  <!-- PRODUCT CARD -->
+  <div *ngFor="let p of product" class="bid-card">
+
+    <div class="bid-image">
+      <img [src]="p.img1" alt="Product Image">
+    </div>
+
+    <div class="bid-info">
+      <h2>Product ID: {{ p.pid }}</h2>
+
+
+      <p>
+        <strong>Current Price:</strong>
+        ₹ {{ oldBidValue > p.price ? oldBidValue : p.price }}
+      </p>
+      <p>
+        <strong>Status:</strong>
+        <span [class.active]="bid.status === 1" [class.closed]="bid.status !== 1">
+          {{ bid.status === 1 ? 'Active' : 'Closed' }}
+        </span>
+      </p>
+      <h4>time {{ p.datetime }}</h4>
+    </div>
+
+  </div>
+
+  <!-- 🔽 BID SECTION -->
+  <div class="bid-action">
+
+    <input type="number" [ngModel]="null" (ngModelChange)="bid.biddingPrice = $event" placeholder="Enter your bid" />
+
+    <!-- ✅ Button ONLY if GREATER -->
+
+    <button
+      [disabled]="!bid.biddingPrice || bid.biddingPrice <= (oldBidValue > product[0]?.price ? oldBidValue : product[0]?.price)"
+      (click)="submitBid()">
+      Place Bid
+    </button>
+    <!-- ❌ Error -->
+    <p *ngIf="bid.biddingPrice && bid.biddingPrice <= (oldBidValue > product[0]?.price ? oldBidValue : product[0]?.price)"
+      class="error">
+      Bid must be greater than current price!
+    </p>
+
+  </div>
+
+</div>
+
+<app-footer></app-footer>

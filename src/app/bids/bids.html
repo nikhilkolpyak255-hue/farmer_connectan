@@ -1,0 +1,45 @@
+<app-farmer-navbar></app-farmer-navbar>
+
+<div class="chat-container">
+
+<p class="total">Total Products: {{ productlist.length }}</p>
+
+<div *ngFor="let product of productlist"
+     class="chat-card"
+     (click)="nextpage(product.pid)">
+<img [src]="product.imgname1" width="200">
+<div class="chat-image">
+
+
+
+</div>
+
+<div class="chat-content">
+
+<div class="chat-top">
+
+<h3>{{ product.productName }}</h3>
+
+<span class="chat-time">
+{{ product.datetime | date:'short' }}
+</span>
+
+</div>
+
+<div class="chat-bottom">
+
+<p class="chat-message">
+{{ product.description }}
+</p>
+
+<span class="chat-price">
+₹ {{ product.price }}
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>

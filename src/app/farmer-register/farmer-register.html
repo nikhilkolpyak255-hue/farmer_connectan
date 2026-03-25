@@ -1,73 +1,10 @@
-<!-- <div class="registration-page">
-  <div class="form-container">
-    <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
-      
-      <div class="form-section">
-        <div class="grid-row">
-          <div class="input-field">
-            <label [class.error-text]="fullName.invalid && (fullName.touched || regForm.submitted)">Full Name *</label>
-            <div class="input-wrapper" [class.error-border]="fullName.invalid && (fullName.touched || regForm.submitted)">
-              <input type="text" name="fullName" ngModel required #fullName="ngModel" placeholder="Enter your full name">
-              <span class="error-icon" *ngIf="fullName.invalid && (fullName.touched || regForm.submitted)">⚠️</span>
-            </div>
-            <p class="error-msg" *ngIf="fullName.invalid && (fullName.touched || regForm.submitted)">Please fill the required field</p>
-          </div>
-
-          <div class="input-field">
-            <label [class.error-text]="email.invalid && (email.touched || regForm.submitted)">Email Address *</label>
-            <div class="input-wrapper" [class.error-border]="email.invalid && (email.touched || regForm.submitted)">
-              <input type="email" name="email" ngModel required email #email="ngModel" placeholder="Enter your email">
-              <span class="error-icon" *ngIf="email.invalid && (email.touched || regForm.submitted)">⚠️</span>
-            </div>
-            <p class="error-msg" *ngIf="email.invalid && (email.touched || regForm.submitted)">Please fill the required field</p>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="section-title"><span>3</span> Identity Verification</h3>
-      <div class="form-section">
-        <div class="grid-row">
-          <div class="upload-box" [class.error-dashed]="!aadhaarImage && regForm.submitted">
-            <label>Aadhaar Card Image *</label>
-            <div class="drop-zone">
-              <input type="file" (change)="onFileSelected($event, 'aadhaar')" required>
-              <div class="upload-content">
-                <i class="upload-icon">⬆️</i>
-                <p>Click to upload or drag and drop</p>
-                <small>PNG, JPG, JPEG up to 5MB</small>
-              </div>
-            </div>
-            <p class="error-msg" *ngIf="!aadhaarImage && regForm.submitted">Please upload your Aadhaar image</p>
-          </div>
-
-          <div class="upload-box optional">
-            <label>Profile Picture</label>
-            <div class="drop-zone">
-              <input type="file" (change)="onFileSelected($event, 'profile')">
-              <div class="upload-content">
-                <i class="upload-icon">⬆️</i>
-                <p>Click to upload or drag and drop</p>
-                <small>Optional - Upload your profile picture</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button type="submit" class="submit-btn">Create Account</button>
-    </form>
-  </div>
-</div> -->
-
 <div class="page-bg">
   <div class="register-container">
-    <h2>Farmer Registration</h2>
-
+    <h2>Registration</h2>
     <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)" novalidate>
-
       <!-- Farmer Name -->
       <div class="form-group" [class.has-error]="username.invalid && username.touched">
-        <label>Farmer Name *</label>
+        <label>Name *</label>
         <div class="input-wrapper">
           <span class="material-icons field-icon">person</span>
           <input type="text" name="username" required [(ngModel)]="faremer.username" #username="ngModel"
@@ -78,7 +15,6 @@
           Please enter only letters and spaces
         </p>
       </div>
-
       <!-- User Type -->
       <div class="form-group user-type-group">
         <label>User Type *</label>
@@ -93,9 +29,7 @@
         <p class="error-text" *ngIf="role.invalid && (role.touched || regForm.submitted)">
           Please select user type
         </p>
-
       </div>
-
       <!-- Email -->
       <div class="form-group" [class.has-error]="email.invalid && email.touched">
         <label>Email *</label>
@@ -106,36 +40,18 @@
           <span class="error-icon" *ngIf="email.invalid && email.touched">⚠</span>
         </div>
       </div>
-
       <!-- Password -->
       <div class="form-group" [class.has-error]="password.invalid && password.touched">
         <label>Password *</label>
-
         <div class="input-wrapper">
           <span class="material-icons field-icon">lock</span>
-
           <input [type]="showPassword ? 'text' : 'password'" name="password" required minlength="6"
             [(ngModel)]="faremer.password" #password="ngModel" placeholder="Enter password">
-
-          <!-- ONLY ONE eye icon -->
-          <!-- <span class="material-icons" (click)="togglePassword()" style="
-        position:absolute;
-        right:12px;
-        top:50%;
-        transform:translateY(-50%);
-        cursor:pointer;
-        color:#3e7d32;
-      ">
-            {{ showPassword ? 'visibility_off' : 'visibility' }}
-          </span> -->
         </div>
-
         <p class="error-text" *ngIf="password.invalid && password.touched">
           Password must be at least 6 characters
         </p>
       </div>
-
-
       <!-- Phone -->
       <div class="form-group" [class.has-error]="phone.invalid && phone.touched">
         <label>Mobile Number *</label>
@@ -148,7 +64,6 @@
           </p>
         </div>
       </div>
-
       <!-- Address -->
       <div class="form-group">
         <label>Farm Address *</label>
@@ -157,7 +72,6 @@
           <textarea name="address" required [(ngModel)]="faremer.address" placeholder="Enter farm address"></textarea>
         </div>
       </div>
-
       <!-- State & City -->
       <div class="row">
         <div class="form-group">
@@ -168,7 +82,6 @@
               (input)="onNameStateCityInput($event,'state')">
           </div>
         </div>
-
         <div class="form-group">
           <label>City *</label>
           <div class="input-wrapper">
@@ -178,10 +91,8 @@
           </div>
         </div>
       </div>
-
       <!-- Aadhar Upload -->
       <div class="row upload-row">
-
         <!-- Aadhar Front -->
         <div class="upload-box" [class.has-error]="!farmerAdhar">
           <span class="material-icons upload-icon">badge</span>
@@ -189,7 +100,6 @@
           <input type="file" accept="image/*" (change)="onFileChange($event,'aadharFront')">
           <img *ngIf="aadharFrontPreview" [src]="aadharFrontPreview" width="120" height="120">
         </div>
-
         <!-- Aadhar Back -->
         <div class="upload-box" [class.has-error]="!farmerAdharback">
           <span class="material-icons upload-icon">badge</span>
@@ -197,13 +107,10 @@
           <input type="file" accept="image/*" (change)="onFileChange($event,'aadharBack')">
           <img *ngIf="aadharBackPreview" [src]="aadharBackPreview" width="120" height="120">
         </div>
-
       </div>
-
       <button type="submit" class="btn-primary">
-        Register Farmer
+        Register 
       </button>
-
     </form>
   </div>
 </div>

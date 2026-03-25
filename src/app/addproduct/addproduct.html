@@ -1,4 +1,8 @@
+<app-farmer-navbar></app-farmer-navbar>
+
+
 <body>
+<app-farmer-navbar></app-farmer-navbar>
 
   <div class="container py-5">
     <div class="row justify-content-center">
@@ -9,12 +13,12 @@
 
           <label class="upload-box">
 
-            <!-- GRID OF IMAGES -->
+            GRID OF IMAGES
             <div class="preview-grid" *ngIf="previews.length > 0">
               <img *ngFor="let img of previews" [src]="img">
             </div>
 
-            <!-- PLACEHOLDER -->
+            PLACEHOLDER
             <div class="placeholder" *ngIf="previews.length === 0">
               <i class="fa fa-cloud-arrow-up"></i>
               <p>Upload Images</p>
@@ -164,3 +168,4 @@
 
 
 </body>
+<app-footer></app-footer>

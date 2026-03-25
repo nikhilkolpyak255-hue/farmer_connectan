@@ -33,8 +33,8 @@ export class Loginpage {
           next: (data: any) => {
             console.log(data.fid)
             if (this.username === data.username && this.password === data.password) {
-              sessionStorage.setItem("id", data.fid)
-              sessionStorage.setItem("username", data.username)
+              localStorage.setItem("id", data.fid)
+              localStorage.setItem("username", data.username)
               this.router.navigate(['/farmerhomepage']);
               form.resetForm();
 
@@ -45,33 +45,13 @@ export class Loginpage {
             }
           },
           error(err) {
-            alert(err.username + "not exit")
+            alert(err.username + " not exits")
           },
         })
 
       }
 
-      // if (this.role === 'customer') {
-      //   this.webclient.getdataByid('/customer-login', formdata).subscribe((data: any) => {
-      //     // if (data && data.username) {
-      //     // if (this.username === data.username && this.password === data.password) {
-      //     //   sessionStorage.setItem("id", data.cid);
-      //     //   sessionStorage.setItem("username", data.username);
-      //     //   this.router.navigate(['/customerhomepage']);
-      //     //   form.resetForm();
-      //     // }
-      //     // }
-      //     // else {
-      //     //   this.loginError = "Username or password doesn't match";
-
-      //     // }
-      //     // },
-      //     // (error)=>{
-      //     //   alert(this.username + "not exit in customers")
-      //     // }
-      //     // )
-      //   }
-      // }
+      
 
       if (this.role === 'customer') {
         this.webclient.getdataByid('/customer-login', formdata).subscribe({
@@ -79,8 +59,8 @@ export class Loginpage {
 
             if (this.username === data.username && this.password === this.password) {
               console.log(data)
-              sessionStorage.setItem("id", data.cid)
-              sessionStorage.setItem("username", data.username)
+              localStorage.setItem("id", data.cid)
+              localStorage.setItem("username", data.username)
               this.router.navigate(['/customerhomepage'])
               form.resetForm()
             }
