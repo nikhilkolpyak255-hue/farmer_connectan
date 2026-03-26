@@ -25,7 +25,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder":"@angular-devkit/build-angular:application",
+          "builder":"@angular/build:application",
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
@@ -67,7 +67,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "Farmer-Connect:build:production"
