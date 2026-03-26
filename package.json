@@ -21,7 +21,7 @@
     ]
   },
   "private": true,
-  "packageManager": "npm@10.0.0",
+  "packageManager": "npm@11.6.2",
   "dependencies": {
     "@angular/animations": "^21.2.1",
     "@angular/cdk": "^21.1.0",
@@ -38,8 +38,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular/build": "^21.2.1",
-    "@angular/cli": "^21.0.3",
+    "@angular/cli": "^17.1.4",
     "@angular/compiler-cli": "^21.2.1",
     "jsdom": "^27.1.0",
     "typescript": "~5.9.2",
